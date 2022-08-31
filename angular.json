@@ -3,5 +3,36 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "ngx-notiflix": {
+      "projectType": "library",
+      "root": "projects/ngx-notiflix",
+      "sourceRoot": "projects/ngx-notiflix/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-notiflix/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-notiflix/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-notiflix/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-notiflix/src/test.ts",
+            "tsConfig": "projects/ngx-notiflix/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-notiflix/karma.conf.js"
+          }
+        }
+      }
+    }
   }
 }
